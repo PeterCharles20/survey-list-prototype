@@ -1,0 +1,13 @@
+
+<div *ngIf="survey">
+
+  <h2>{{survey.name | uppercase}} Details</h2>
+  <div><span>id: </span>{{survey.id}}</div>
+  <div>
+    <label> name:
+      <input [(ngModel)]="survey.name" placeholder="name"/>
+    </label>
+  </div>
+  <button (click)="goBack()">go back</button>
+
+</div>

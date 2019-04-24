@@ -1,0 +1,57 @@
+.table_survey{
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin: auto;
+  list-style-type: none;
+  text-align: left;
+  display:inline-block;
+  border:0.3px solid #000;
+  border-radius: 5px;
+  width: 50%;
+  box-shadow: 0.5px 0.5px;
+  background-color: #ffffff;
+}
+.table_survey th {
+  vertical-align:middle;
+  text-align:left;
+  padding: 10px;
+  position: relative;
+  width: 30%;
+}
+.table_survey td {
+  vertical-align:middle;
+  text-align:left;
+  padding: 10px;
+}
+table tr:nth-child(odd) {
+  background-color: aliceblue;
+}
+
+table tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.table_survey tr {
+  position: relative;
+  cursor: pointer;
+  padding: 1px;
+  height: 1px;
+  border:0.9px solid #000;
+}
+.table_survey :hover {
+  background-color: papayawhip;
+}
+.table_survey :first-child:hover
+{
+  background-color: white;
+}
+.btn {
+  background-color: black; /* Blue background */
+  border: none; /* Remove borders */
+  color: dodgerblue;
+  cursor: pointer; /* Mouse pointer on hover */
+}
+/* Darker background on mouse-over */
+.btn:hover {
+
+}
