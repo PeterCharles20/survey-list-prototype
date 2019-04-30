@@ -49,7 +49,6 @@ export class SurveyService {
       catchError(this.handleError<Survey[]>('searchSurveys', []))
     );
   }
-
   /**
    * Handle Http operation that failed.
    * Let the app continue.
@@ -70,6 +69,13 @@ export class SurveyService {
     };
   }
 
+  /** PUT: update the survey on the server */
+  updateSurvey (survey: Survey): Observable<any> {
+    return this.http.put(this.surveysURL, survey, httpOptions).pipe(
+      tap(_ => this.log(`updated survey id=${survey.id}`)),
+      catchError(this.handleError<any>('updateSurvey'))
+    );
+  }
   /** Log a SurveyService message with the MessageService */
   private log(message: string) {
     this.messageService.add(`SurveyService: ${message}`);
