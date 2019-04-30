@@ -1,6 +1,15 @@
 <h2>List of Surveys</h2>
 
-<app-survey-search></app-survey-search>
+<div class="add_survey">
+  <button (click)="createSurvey(name.value); name.value = ''">Add Survey</button>
+  <input #name/>
+</div>
+<br>
+
+<div class="survey_search">
+  <app-survey-search></app-survey-search>
+</div>
+<!--<input #searchBox id="search-box" (input)="search(searchBox.value)" (click)="onSearch()" /> <br> <br>-->
 
 <table class="table_survey">
   <tr>
@@ -9,12 +18,16 @@
     <th>Created</th>
     <th>Last Modified</th>
   </tr>
+<!--  <tr *ngFor="let survey of surveys$ | async"-->
   <tr *ngFor="let survey of surveys"
       routerLink="/detail/{{survey.id}}"
       class="survey_data">
     <td class="survey_id">{{survey.id }}</td>
     <td>{{ survey.name }}</td>
     <td class="created">{{survey.created}}</td>
-    <td>{{survey.lastModified}}</td>
+    <td>{{survey.lastModified}}
+      <button (click)="deleteSurvey(survey.id)">Delete</button>
+    </td>
   </tr>
 </table>
+
