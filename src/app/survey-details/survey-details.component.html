@@ -2,12 +2,37 @@
 <div *ngIf="survey">
 
   <h2>{{survey.name | uppercase}} Details</h2>
-  <div><span>id: </span>{{survey.id}}</div>
+
   <div>
-    <label> name:
+    <label class="surveyName"> Survey Name:
       <input [(ngModel)]="survey.name" placeholder="name"/>
     </label>
   </div>
-  <button (click)="goBack()">go back</button>
+<br>
+  <button (click)="addQuestion()">Add Question</button> <br><br>
+  <div formArrayName = "questions">
+
+    <div *ngFor= "let question of questions.controls; let i=index" class="questionBox">
+      <label>
+        Question Name:
+        <input type="text" [formControlName]="i" class ="questionName">
+      </label>
+      <br>
+      <form>
+        <button (click)="createButton()">Add option</button> <br><br>
+        <input type="radio" name="gender" value="male" > Yes <br>
+        <input type="radio" name="gender" value="female"> No
+      </form>
+      <br>
+      <button (click)="removeQuestion(i)">Delete</button>
+    </div>
+
+  </div>
+  <br>
+
+  <div>
+    <button (click)="saveSurvey()">Save & Exit</button>
+    <button (click)="goBack()">Cancel</button>
+  </div>
 
 </div>
