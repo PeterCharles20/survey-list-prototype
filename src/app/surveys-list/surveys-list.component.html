@@ -1,8 +1,9 @@
 <h2>List of Surveys</h2>
 
 <div class="add_survey">
-  <button (click)="createSurvey(name.value); name.value = ''">Add Survey</button>
+  <button (click)="createSurvey(name.value, status.value); name.value = ''">Add Survey</button>
   <input #name/>
+  <input #status/>
 </div>
 <br>
 
@@ -15,6 +16,7 @@
   <tr>
     <th>Id</th>
     <th>Name</th>
+    <th>Status</th>
     <th>Version</th>
     <th>Created</th>
     <th>Last Modified</th>
@@ -25,6 +27,7 @@
       class="survey_data">
     <td class="survey_id">{{survey.id }}</td>
     <td class="name">{{ survey.name }}</td>
+    <td class="Status">{{ survey.status }}</td>
     <td class="version">{{getSurveyVersion(survey.id)}}</td>
     <td class="created">{{survey.created}}</td>
     <td>{{survey.lastModified}}

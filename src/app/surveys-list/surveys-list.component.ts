@@ -6,6 +6,7 @@ import {
 } from 'rxjs/operators';
 
 import { Survey } from '../obj/survey';
+import { SurveyStatus } from '../obj/survey';
 import { SurveyService } from '../services/survey.service';
 
 @Component({
@@ -50,10 +51,11 @@ export class SurveysListComponent implements OnInit {
    * Takes a string name, and appends a new survey
    * @param name
    */
-  createSurvey(name: string) {
+  createSurvey(name: string, status: string) {
     name = name.trim();
-    if (!name) { return; }
-    this.surveyService.addSurvey({ name } as Survey)
+    status = status.trim();
+    if (!name || !status) { return; }
+    this.surveyService.addSurvey({ name,status } as Survey)
       .subscribe(project => {this.surveys.push(project);
       });
   }
