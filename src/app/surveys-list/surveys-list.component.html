@@ -15,6 +15,7 @@
   <tr>
     <th>Id</th>
     <th>Name</th>
+    <th>Version</th>
     <th>Created</th>
     <th>Last Modified</th>
   </tr>
@@ -23,7 +24,8 @@
       routerLink="/detail/{{survey.id}}"
       class="survey_data">
     <td class="survey_id">{{survey.id }}</td>
-    <td>{{ survey.name }}</td>
+    <td class="name">{{ survey.name }}</td>
+    <td class="version">{{getSurveyVersion(survey.id)}}</td>
     <td class="created">{{survey.created}}</td>
     <td>{{survey.lastModified}}
       <button (click)="deleteSurvey(survey.id)">Delete</button>

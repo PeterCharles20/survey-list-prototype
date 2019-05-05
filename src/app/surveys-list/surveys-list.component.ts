@@ -33,6 +33,18 @@ export class SurveysListComponent implements OnInit {
     this.surveyService.getSurveys()
       .subscribe(surveys => this.surveys = surveys);
   }
+  
+  getSurveyVersion(id: number): number
+  {
+    console.log(id);
+    var sv = this.surveys.filter(surv => surv.parent_id === id);
+    if (sv.length > 0)
+    {
+        sv.sort();
+        return sv[0].version;
+    }
+    else return 1;
+  }
 
   /**
    * Takes a string name, and appends a new survey

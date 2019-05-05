@@ -65,23 +65,19 @@ export class SurveyService {
     );
   }
 
-  getSurveyLatestVersion(id: number): Observable<Survey> {
-      const sv = this.searchSurveys(id,"parent_id");
-      this.messageService.add(sv);
-  }
-
   searchSurveys(term: string, url_category: string = "name"): Observable<Survey[]> {
-    const url = `${this.surveysURL}/?${url_category}=${term}`;
     if (!term.trim()) {
       // if not search term, return empty survey array.
       return of([]);
     }
+
+    const url = `${this.surveysURL}/?${url_category}=${term}`;
     return this.http.get<Survey[]>(url).pipe(
       tap(_ => this.log(`found surveys matching "${term}"`)),
       catchError(this.handleError<Survey[]>('searchSurveys', []))
     );
   }
- 
+
   /**
    * Handle Http operation that failed.
    * Let the app continue.
