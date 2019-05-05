@@ -5,8 +5,8 @@ import {
   debounceTime, distinctUntilChanged, switchMap
 } from 'rxjs/operators';
 
-import { Survey } from '../survey';
-import { SurveyService } from '../survey.service';
+import { Survey } from '../obj/survey';
+import { SurveyService } from '../services/survey.service';
 
 @Component({
   selector: 'app-forms-list',

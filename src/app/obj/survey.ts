@@ -6,4 +6,6 @@ export class Survey {
   name: string;
   created: string;
   lastModified: string;
+  version: number;
+  parent_id: number;
 }
